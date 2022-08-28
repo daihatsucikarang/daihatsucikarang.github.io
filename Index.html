@@ -213,11 +213,11 @@
 
 
                     <div class="col m7 s12">
-                      <form>
+                      <form name="pengunjung-uro-daihatsu">
                         <div class="card-panel">
                           <h5>Mohon Isi Form Ini</h5>
                           <div class="input-field">
-                            <input type="text" name="name" id="name" required class="validate">
+                            <input type="text" name="nama" id="name" required class="validate">
                             <label for="name">Nama</label>
                           </div>
                           <div class="input-field">
@@ -225,14 +225,20 @@
                             <label for="email">Email</label>
                           </div>
                           <div class="input-field">
-                            <input type="text" name="phonr" id="phone">
+                            <input type="text" name="phone" id="phone">
                             <label for="phone">Telepon</label>
                           </div>
                            <div class="input-field">
-                            <textarea name="message" id="message" class="materialize-textarea"></textarea>
+                            <textarea name="pesan" id="message" class="materialize-textarea"></textarea>
                             <label for="message">Pesan Anda</label>
                           </div>
-                          <button type="submit" class="btn blue darken-2">Kirim</button>
+                          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                          </button>
+                          <button class="btn btn-primary d-none" type="button" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            Loading...
+                          </button>
                         </div>
                       </form>
                     </div>
@@ -294,7 +300,20 @@
         scrollOffset: 40
        }
        );
+       
 
+      </script>
+
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzP1ujKxFDevNgWyb4lL3BaU4BspwvqLOskuiDQh1mK3mb92krsF4zhpojrhKIVZpU/exec'
+        const form = document.forms['pengunjung-uro-daihatsu']
+
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
       </script>
 
     </body>
