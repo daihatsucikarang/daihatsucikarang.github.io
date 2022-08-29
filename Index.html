@@ -236,8 +236,7 @@
                             <textarea name="pesan" id="message" class="materialize-textarea"></textarea>
                             <label for="message">Pesan Anda</label>
                           </div>
-                          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                            <i class="material-icons right">send</i>
+                          <button class="btn waves-effect waves-light"onclick="M.toast({html: 'Pesan Anda Terkirim!'})" class ="btn">Kirim
                           </button>
                         </div>
                       </form>
@@ -298,8 +297,12 @@
        const scroll = document.querySelectorAll('.scrollspy')
        M.ScrollSpy.init(scroll, {
         scrollOffset: 40
+
+        
+
        }
        );
+       
 
             
 
@@ -324,6 +327,7 @@
          function newFunction() {
             document.getElementById("forms").reset();
          }
+         
       </script>
       </script>
 
