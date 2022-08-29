@@ -206,14 +206,14 @@
                       <ul class="collection with-header">
                         <li class="collection-header"><h4>Kantor Kami</h4></li>
                         <li class="collection-item">Uro Daihatsu</li>
-                        <li class="collection-item"> square, Jl. Raya Cikarang - Cibarusah, Pasirsari, Cikarang Sel., Kabupaten Bekasi</li>
+                        <li class="collection-item">Komplek Cikarang Square Jl. Boulevard Cikarang Square No. 1, Pasirsari, Cikarang Sel., Kabupaten Bekasi</li>
                         <li class="collection-item">Jawa Barat, Indonesia 17530</li>
                       </ul>
                     </div>
 
 
                     <div class="col m7 s12">
-                      <form name="pengunjung-uro-daihatsu">
+                      <form name="pengunjung-uro-daihatsu" id = "forms">
                         <div class="card-panel">
                           <h5>Mohon Isi Form Ini</h5>
                           <div class="input-field">
@@ -228,16 +228,16 @@
                             <input type="text" name="phone" id="phone">
                             <label for="phone">Telepon</label>
                           </div>
+                          <div class="input-field">
+                            <input type="text" name="jobs" id="jobs">
+                            <label for="phone">Pekerjaan Anda</label>
+                          </div>
                            <div class="input-field">
                             <textarea name="pesan" id="message" class="materialize-textarea"></textarea>
                             <label for="message">Pesan Anda</label>
                           </div>
                           <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
-                          </button>
-                          <button class="btn btn-primary d-none" type="button" disabled>
-                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                            Loading...
                           </button>
                         </div>
                       </form>
@@ -258,7 +258,7 @@
           </section>
 
           <body class ="center">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37726.26114567438!2d107.0717265592189!3d-6.331188325851138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699b5b6333702b%3A0xfdbeae6d8dcad2bd!2sSales%20Resmi%20Daihatsu%20Cikarang!5e0!3m2!1sid!2sid!4v1661702508736!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253882.87911983166!2d106.81634372053429!3d-6.141450292826299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699b1effffffff%3A0xad17b419be93b7a2!2sDAIHATSU%20Astrido%20Cikarang!5e0!3m2!1sid!2sid!4v1661806418492!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
           </body>
 
           
@@ -266,7 +266,7 @@
 
           <!-- footer -->
           <footer class="blue darken-2 white-text center">
-            <p class="flow-text">Uro Sahabat Daihatsu, Copyright 2022.</p>
+            <p class="flow-text"> USD (Uro Sahabat Daihatsu), Copyright 2022.</p>
           </footer>
 
         
@@ -300,7 +300,8 @@
         scrollOffset: 40
        }
        );
-       
+
+            
 
       </script>
 
@@ -311,9 +312,19 @@
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
+            .then(response => {
+              document.getElementById("forms").reset();
+              
+              console.log('Success!', response)
+            })
             .catch(error => console.error('Error!', error.message))
         })
+
+        <script>
+         function newFunction() {
+            document.getElementById("forms").reset();
+         }
+      </script>
       </script>
 
     </body>
